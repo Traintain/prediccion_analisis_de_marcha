@@ -10,6 +10,9 @@ import pandas as pd
 
 
 class TextPreprocessing(BaseEstimator,TransformerMixin):
+    """
+    Perzonalized transformer for text analysis. Proovided by sklearn.
+    """
     def __init__(self,stopwords=stopwords.words('english')):
         self.stopwords = stopwords
 
@@ -77,11 +80,13 @@ class TextPreprocessing(BaseEstimator,TransformerMixin):
         return lemmas
 
     def stem_and_lemmatize(self, words):
+        """Stematize and Lematize the words on corpus"""
         words = self.stem_words(words)
         words = self.lemmatize_verbs(words)
         return words
 
     def preproccesing(self, words):
+        """Unify all text cleaning proccess"""
         words = self.to_lowercase(words)
         words = self.replace_numbers(words)
         words = self.remove_punctuation(words)

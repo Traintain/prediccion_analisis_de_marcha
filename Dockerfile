@@ -10,22 +10,9 @@ WORKDIR $APP_HOME
 # Copy local code to the container image.
 COPY . .
 
-RUN apt-get update \
-    && apt-get -y install libpq-dev gcc locales locales-all pkg-config\
-    && pip install psycopg2
-
-RUN sed -i -e 's/# es_ES.UTF-8 UTF-8/es_ES.UTF-8 UTF-8/' /etc/locale.gen \
- && locale-gen
-
-ENV LC_ALL es_ES.UTF-8 
-ENV LANG es_ES.UTF-8  
-ENV LANGUAGE es_ES:es 
-
-RUN apt-get install ffmpeg libsm6 libxext6  -y
-
 # Install dependencies.
 #RUN pip install -r requirements.txt
-RUN pip install streamlit==1.7.0 plotly==5.6.0 
+RUN pip install streamlit==1.8.0 plotly==5.6.0 
 RUN pip install scikit-learn==1.0.2 contractions==0.1.68 nltk==3.7 inflect==5.4.0
 RUN python -m nltk.downloader punkt
 RUN python -m nltk.downloader wordnet
