@@ -19,6 +19,7 @@ tipoCirugia={
     1: "alargamiento del tendón de aquiles",
     2: "alargamiento de la fascia",
 }
+  
 
 tipoParalisis=["Ataxica",	"Diskinetica","Espastica",	"Hipotonica","Mixta"]
 categoriasSilver=["Negativo", "Leve", "Positivo", "No evaluable"]
